@@ -3,7 +3,7 @@ import re
 import diccionario as dict_l
 import random
 
-message = "53‡‡†305))6*;4826)4‡.)4‡);806*;48†8¶60))85;1‡(;:‡*8†83(88)5*†;46(;88*96*?;8)*‡(;485);5*†2:*‡(;4956*2(5*-4)8¶8*;4069285);)6†8)4‡‡;1(‡9;48081;8:8‡1;48†85;4)485†528806*81(‡9;48;(88;4(‡?34.48)4‡;161;:188;‡?;"
+message = "53‡‡†305))6*;4826)4‡.)4‡);806*;48†8¶60))85;1‡(;:‡*8†83(88)5*†;46(;88*96*?;8)*‡(;485)8)5*†;46(;88*96*?;8)*‡(;485);5*†2:*‡(;4956*2(5*—4)8¶8*;4069285);)6†8)4‡‡;1(‡9;48081;8:8‡1;48†85;4)485†528806*81(‡9;48;(88;4(‡?34;48)4‡;161;:188;‡?;"
 
 # Obtenemos los diccionarios de monogramas, bigramas, trigramas, cuagramas y palabras para descifrarlo.
 monograms = dict_l.monograms
@@ -51,8 +51,8 @@ def reemplazar_primeros_bigramas():
     monograms.pop(segundo_bigrama[0])
     monograms.pop(segundo_bigrama[1])
     #print(cantidad_bigramas.keys())
-    cantidades_de_caracteres.pop(list(cantidad_bigramas.keys())[2][0])
-    cantidades_de_caracteres.pop(list(cantidad_bigramas.keys())[2][1])
+    cantidades_de_caracteres.pop(list(cantidad_bigramas.keys())[4][0])
+    cantidades_de_caracteres.pop(list(cantidad_bigramas.keys())[4][1])
     print("\n Obteniendo el segundo bigrama (IN) \n Resultado: {}".format(message))
     print("\n")
 
@@ -125,10 +125,11 @@ def iterar_y_reemplazar():
             if(re.search(key, message_copy)):
                 points += 1
         if(points >= 5):
-            message = message_copy
+            message = message_copy[:84] + message_copy[112:]
             found = True
 
         message_copy = message
+        
     print("\n\nEncontrado despues de {} iteraciones".format(iterations))
 
 

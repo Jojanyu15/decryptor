@@ -115,3 +115,4 @@ def obtener_cantidad_cuagramas(mensaje):
             cantidad_cuagramas[cuagrama] = 1
 
     return dict(sorted(cantidad_cuagramas.items(), key=lambda x: x[1], reverse=True))
+
