@@ -15,6 +15,11 @@ with open("ngrams/english_quadgrams.txt") as f:
     quadgrams = dict([line.split() for line in f])
 
 
+words = {}
+with open("ngrams/word_dictionary.txt") as f:
+    words = dict([line.split() for line in f])
+
+
 def obtener_cantidad_monogramas(mensaje):
     letras_dic = dict()  # Guarda repetición de letras
     contador = 0  # Caracteres que se repiten
@@ -32,6 +37,7 @@ def obtener_cantidad_monogramas(mensaje):
 def obtener_cantidad_biagramas(mensaje):
     cantidad_bigramas = dict()  # Creo el diccionario
     # Uno el mensaje encriptado junto con el mismo mensaje con un string faltante para garantizar todas las combinaciones
+    
     msg = mensaje
     msg_splitted = mensaje[1:]
 
